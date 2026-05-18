@@ -1,8 +1,12 @@
 from flask import Flask, request, jsonify, send_from_directory
 from groq import Groq
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 app = Flask(__name__)
-client = Groq(api_key="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")
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 business_info = """
 You are a customer support assistant 
